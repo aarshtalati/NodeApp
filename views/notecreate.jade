@@ -1,0 +1,43 @@
+extends layout
+block content
+    br
+    p
+      strong Task )
+      |  insert in database
+    h1= title
+
+    form(method="POST", action="/notecreate")
+
+      div
+        div(class="form-group")
+          label= "Notebook"
+        select(class="form-control", name="notebook")
+          for notebook in notebooks
+            option(value=notebook.name)
+              =notebook.name
+
+      br
+
+      div
+        div(class="form-group")
+          label= "Note"
+        input(type="text", class="form-control", name="name")
+
+      br
+
+      div
+        div(class="form-group")
+          label= "Author"
+        input(type="text", class="form-control", name="author")
+
+      br
+
+      div
+        div(class="form-group")
+          label= "Color"
+        input(type="text", class="form-control", name="color")
+
+      br
+
+      input(type="submit", class="btn btn-primary", value="Submit")
+      a(href="/notelist", class="btn btn-default") Cancel

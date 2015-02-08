@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var notelist = require('./routes/notelist');
 var notefind = require('./routes/notefind');
+var notecreate = require('./routes/notecreate');
 
 var url = require('url');
 
@@ -32,6 +33,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/notelist', notelist);
 app.use('/notefind', notefind);
+app.use('/notecreate', notecreate);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
