@@ -1,0 +1,22 @@
+extends layout
+block content
+    h2= title
+    div(style="margin-bottom: 1em;")
+      a(href="/notecreate", class="btn btn-primary") Add Note
+      a(href="/notefind", class="btn btn-default") Find
+
+    div(class="container")
+      p
+        strong Task )
+        |  Get all records from database
+      div= error
+      ul(style="margin: 3em;")
+        for notebook in notebooks
+          li
+            =notebook.name
+            ol(style="margin: 1em;")
+              for note in notebook.notes
+                li
+                  div= note.note
+                  div= note.author
+                  div= note.color
