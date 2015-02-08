@@ -1,5 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h2= header
+  ul(style="margin: 2em;")
+    for item in items
+      li(style="padding-left: 1em; margin-bottom: 10px ")
+        ="ID : "
+         strong
+            =item.id
+        ul(style="margin: 1em;")
+          li(class="list-group-item")
+            ="Game : "
+            div(class="label label-default")
+              =item.game
+          li(class="list-group-item")
+            div= ("User : " + item.user)
+          li(class="list-group-item")
+            div= ("Highscores : " + item.highscore)
+          li(class="list-group-item")
+            div= ("Show : " + item.show + " ( " + item.episode + " )")
+    else
+      li sorry, no shows :-/
