@@ -1,0 +1,35 @@
+extends layout
+block content
+    br
+    p
+      strong Task )
+      |  Find in database
+
+    h1= title
+
+    form(method="POST", action="/notefind")
+
+      div
+        div(class="form-group")
+          label= "Notebook Named ..."
+        input(type="text", class="form-control", name="name")
+
+      br
+
+      input(type="submit", class="btn btn-primary", value="Submit")
+      a(href="/notelist", class="btn btn-default") Cancel
+
+
+      ul(style="margin: 3em;")
+        for notebook in searchResults
+          li
+            =notebook.name
+            ol(style="margin: 1em;")
+              for note in notebook.notes
+                li
+                  div= note.note
+                  div= note.author
+                  div= note.color
+        else
+          li
+            ="notes not found for specified criteria (yet)"
